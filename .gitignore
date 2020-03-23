@@ -1,0 +1,11 @@
+deps/
+debug/
+release/
+build/
+.vs/
+
+# QtCreator
+*.user
+
+# VS2019 CMake local settings
+CMakeSettings.json
