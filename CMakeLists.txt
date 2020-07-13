@@ -77,13 +77,9 @@ add_subdirectory(src)
 # Enable test support using ctest-like interface
 #
 
-option(BUILD_TESTING "Enable testing with ctest." OFF)
-option(BUILD_PERFORMANCE_TESTS "Enable performance tests." OFF)
-if(BUILD_PERFORMANCE_TESTS)
-    set(BUILD_TESTING ON)
-endif()
+option(BUILD_TESTS "Enable testing with ctest." OFF)
 
-if(BUILD_TESTING)
+if(BUILD_TESTS)
     message("\n-- Building External Project: googletest")
 
     # gtest, gtest_main, gmock and gmock_main targets are available from now on
@@ -100,9 +96,4 @@ if(BUILD_TESTING)
 
     set(UNIT_TESTS_DIR ${PROJECT_SOURCE_DIR}/test)
     add_subdirectory(${UNIT_TESTS_DIR})
-
-    if(BUILD_PERFORMANCE_TESTS)
-        message("-- Performance tests enabled")
-        add_subdirectory(performance)
-    endif()
 endif()
